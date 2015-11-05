@@ -2,18 +2,18 @@
     <ol class="breadcrumb" style="background-color: transparent">
         <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
 
-        <li class="active"> Groups</li>
+        <li class="active"> Quizzes</li>
     </ol>
 
 </div>
 <div class="row" ng-controller="GroupCtrl" cg-busy="{promise:mypromise2,templateUrl:'partials/custom-template.html'}" xmlns="http://www.w3.org/1999/html">
   <div class="col-lg-12">
-    <h4 class="page-header"> Groups Management</h4>
+    <h4 class="page-header"> Quiz Management</h4>
     <div class="under">
 
         <!-- Button trigger modal -->
         <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-            New Group
+            New Quiz
         </button>
 
         <!-- Modal -->
@@ -131,8 +131,8 @@
                   <thead>
                   <tr>
                       <th>ID</th>
-                      <th>Group members</th>
-                      <th>Balance</th>
+                      <th>Quiz Title</th>
+                      <th>Top Scorer</th>
                       <th>Action</th>
                   </tr>
                   </thead>

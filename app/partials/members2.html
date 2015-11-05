@@ -1,14 +1,14 @@
 <div class="row">
     <ol class="breadcrumb" style="background-color: transparent">
         <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#/groups"><i class="fa fa-users"></i> Groups</a></li>
-        <li class="active"> Members</li>
+        <!--<li><a href="#/groups"><i class="fa fa-users"></i> Groups</a></li>-->
+        <li class="active"> Students</li>
     </ol>
 
 </div>
 <div class="row " cg-busy="{promise:mypromise,templateUrl:'partials/custom-template.html'}" xmlns="http://www.w3.org/1999/html">
     <div class="col-lg-12">
-        <h4> Members Management</h4>
+        <h4> Students Management</h4>
         <div class="under">
 
             <!-- Button trigger modal -->
@@ -21,7 +21,7 @@
         <div class="panel panel-white" ng-controller="TransCtrl" >
             <div class="panel-heading clearfix">
 
-                <div class="pull-left"> Registered Members ({{MembersList2.length}})</div>
+                <div class="pull-left"> Registered Students ({{MembersList2.length}})</div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 25px;font-family:Arial, FontAwesome">
 
             </div>

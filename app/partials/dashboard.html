@@ -13,7 +13,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">{{MembersList2.length}}</div>
-                                <div>Members</div>
+                                <div>Students </div>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">{{listofGroups.length}}</div>
-                                <div>Groups</div>
+                                <div>Quizzes </div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"> {{DueList.length}}</div>
-                                <div>Dues</div>
+                                <div>Attempts by students</div>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
             <div class="col-lg-12" style="padding-left: 7px">
                 <div class="col-lg-4">
                     <div class="panel panel-white" ng-controller="GroupCtrl">
-                        <div class="panel-heading"><i class="fa fa-users"></i> Groups ({{listofGroups.length}})
+                        <div class="panel-heading"><i class="fa fa-users"></i> Quizzes ({{listofGroups.length}})
 
                             <div class="btn-group pull-right">
                                 <a href="#/groups" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Group</a>
@@ -114,8 +114,9 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Balance</th>
+                                        <th>Titile</th>
+                                        <th>Top scorer</th>
+                                        <th>Top Score</th>
 
                                     </tr>
                                     </thead>
