@@ -32,19 +32,19 @@
                       <label class="pull-left" style="padding-left: 1cm">Question:</label>
 
                       <input class="form-control pull-right" 
-                             style="width: 300px; height: 35px" data-ng-model="firstName" type="text" placeholder="Question">
+                             style="width: 300px; height: 35px" data-ng-model="question" type="text" placeholder="Question">
                     </div>
                     <div class="row from-group" style="padding-bottom: 5px">
                       <label class="pull-left" style="padding-left: 1cm">Options:</label>
 
                       <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Options">
+                             style="width: 300px; height: 35px" data-ng-model="options" type="text" placeholder="Options">
                     </div>
                     <div class="row from-group" style="padding-bottom: 5px">
                       <label class="pull-left" style="padding-left: 1cm">Answer:</label>
 
                       <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Answer">
+                             style="width: 300px; height: 35px" data-ng-model="answer" type="text" placeholder="Answer">
                     </div>
 
                     <!--<div class="row from-group" style="padding-bottom: 5px">-->
@@ -115,7 +115,7 @@
               <div class="row form-group pull-right" style="padding-top: 10px;padding-right: 20px;">
 
                 <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                <button class="btn btn-success btn-sm" type="button"
+                <button class="btn btn-success btn-sm" type="button" data-dismiss="modal"
                         data-ng-disabled="!firstName || !lastName || !nic || !Balance || !DDate || !area  || !telephone"
                         data-ng-click=" addMember();" data-dismiss="modal"> Add Member</button>
               </div>

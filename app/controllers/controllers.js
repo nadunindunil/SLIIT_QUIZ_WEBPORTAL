@@ -23,12 +23,12 @@ app.controller('GroupCtrl', function($scope,$http,$rootScope){
 
 
 
-    $scope.insertGroup = function(){
-
+    $scope.insertQuiz = function(){
+        // quiz function is  partially done - Nadun
         var Balance = $scope.Balance;
         var ID = $scope.id;
         var product = $scope.PID;
-        var Number = $scope.memNO;
+        var title = $scope.Title;
 
         var NextBal = Balance/Number;
         var Area = $scope.area.charAt(0).toUpperCase() + $scope.area.substr(1).toLowerCase();
@@ -39,14 +39,14 @@ app.controller('GroupCtrl', function($scope,$http,$rootScope){
         $rootScope.PID = product;
         $rootScope.balTOmem = NextBal;
 
-        console.log(Number,Area,Balance,product,NextBal);
+        console.log(title);
 
         // send notifications needed
         var x= 0;
         for( var i=0 ; i < $scope.listofGroups.length ; i++ ){
             console.log("in loop");
             if ($scope.listofGroups[i]._id == ID){
-                alert(" Group " + ID + " Exist!");
+                alert(" Quiz name " + title + " Exist!");
                 x=1;
                 console.log("loop ends");
                 break;
@@ -57,8 +57,8 @@ app.controller('GroupCtrl', function($scope,$http,$rootScope){
 
         if (x == 0){
 
-            $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Group " + ID
-            +" added to Database with " + Balance + " number of members: " + Number});
+            $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Quiz " + title
+            +" added!"});
 
 
             //groupService.insertGroup(Balance,Area,ID,number);
@@ -71,13 +71,7 @@ app.controller('GroupCtrl', function($scope,$http,$rootScope){
 
     };
 
-    /*
-    $scope.addGroup = function(balance,NoMembers,Area,ID){
 
-        $http.post();
-
-    };
-    */
 
     $scope.deleteGroup = function(Id){
 
@@ -218,18 +212,11 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
 
 
         });
-            // send notifications needed
-
-            //$scope.mypromise = $http.get('http://104.236.206.83:3000/groupinfo/' + $routeParams.groupId ).success(function(data) {
-            //    $scope.MembersList = data;
-            //    list = data;
-            //    console.log(data);
-            //    init2();
-            //});
-
-
 
         };
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////
 
         $scope.deleteMember=function(Id){
 

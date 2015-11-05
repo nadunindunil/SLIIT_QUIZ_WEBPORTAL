@@ -44,7 +44,7 @@
 
                                     <input class="form-control pull-right"
                                            style="width: 300px; height: 35px" data-ng-model="Title" type="text"
-                                           placeholder="Members NO">
+                                           placeholder="Title">
 
                                 </div>
 
@@ -101,9 +101,9 @@
 
                             <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 
-                            <a href="" class="btn btn-success btn-sm" type="button"
+                            <a href="" class="btn btn-success btn-sm" type="button" data-dismiss="modal"
                                data-ng-disabled=" !Title  "
-                               ng-click="insertGroup()"
+                               ng-click="insertQuiz()"
                                role="button"> Add Quiz</a>
                         </div>
                     </div>

@@ -57,4 +57,4 @@ app.service('groupService',function (){
     this.getGroups = function () {
         return listofGroups;
     };
-})
+});
