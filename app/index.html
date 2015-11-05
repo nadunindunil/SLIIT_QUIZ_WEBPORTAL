@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> AQUAMASTERS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CustomStyles/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="CustomStyles/customerManagementStyles.css">
+  <link rel="stylesheet" href="CustomStyles/panels.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="CustomStyles/myStyle.css">
+  <link rel="stylesheet" href="CustomStyles/animations.css">
+  <link rel="stylesheet" href="CustomStyles/transitions.css">
+  <link rel="stylesheet" href="bower_components/angular-busy/angular-busy.min.css">
+  <link rel="stylesheet" href="bower_components/angular-scroll/ng-scrollbar.min.css">
+
+
+
+</head>
+<body>
+  <div id="wrapper">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/dashboard"> AQUAMASTERS</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+          <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <!--<ul class="dropdown-menu dropdown-messages">
+          <li>
+            <a href="">
+              <div>
+                <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+              </div>
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+              </div>
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+              </div>
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a class="text-center" href="">
+              <strong>Read All Messages</strong>
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </li>
+        </ul>
+         /.dropdown-messages -->
+      </li>
+      <!-- /.dropdown -->
+
+      <!-- /.dropdown -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+          <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-alerts">
+          <li>
+            <a href="">
+              <div>
+                <i class="fa fa-comment fa-fw"></i> New Comment
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                <span class="pull-right text-muted small">12 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <i class="fa fa-tasks fa-fw"></i> New Task
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="">
+              <div>
+                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                <span class="pull-right text-muted small">4 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a class="text-center" href="">
+              <strong>See All Alerts</strong>
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- /.dropdown-alerts -->
+      </li>
+      <!-- /.dropdown -->
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+          <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+          <li><a href=""><i class="fa fa-user fa-fw"></i> User Profile</a>
+          </li>
+          <li><a href=""><i class="fa fa-gear fa-fw"></i> Settings</a>
+          </li>
+          <li class="divider"></li>
+          <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+          </li>
+        </ul>
+        <!-- /.dropdown-user -->
+      </li>
+      <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+
+          <li>
+            <a href="#/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+          </li>
+
+          <li>
+            <a href="#/groups"><i class="fa fa-table fa-fw"></i> Groups</a>
+          </li>
+          <li>
+            <a href="#/members2"><i class="fa fa-edit fa-fw"></i> Group Members</a>
+          </li>
+
+
+
+
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
+
+  <!-- Page Content -->
+  <div id="page-wrapper">
+    <div class="container-fluid">
+
+
+      <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <div ng-view id="div-view" class="view-slide-in"></div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/controllers.js"></script>
+  <script src="factories/factory.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular-busy/angular-busy.min.js"></script>
+  <script src="bower_components/angular-scroll/ng-scrollbar.min.js"></script>
+  <script src="bower_components/parse/dist/parsley.min.js"></script>
+  <script src="components/angular-datepicker.js"></script>
+  <script>
+
+
+    $("#myField").keyup(function() {
+      $("#myField").val(this.value.match(/[0-9]*/));
+    });
+  </script>
+
+
+</body>
+</html>

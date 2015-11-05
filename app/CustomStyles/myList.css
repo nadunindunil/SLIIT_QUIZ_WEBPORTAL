@@ -1,0 +1,43 @@
+
+
+body {
+    padding-top: 20px;
+}
+
+
+.phones {
+    list-style: none;
+}
+
+.thumb {
+    float: left;
+    margin: -0.5em 1em 1.5em 0;
+    padding-bottom: 1em;
+    height: 100px;
+    width: 100px;
+}
+
+.phones li {
+    clear: both;
+    height: 115px;
+    width: 800px;
+    padding-top: 15px;
+
+    border-bottom-color: #85ADFF;
+    border-bottom-width: 3px;
+    border-left-color: #85ADFF;
+    border-left-width: thin;
+    border-bottom-left-radius: 2px;
+}
+
+.myname {
+    clear: both;
+    padding-top: 15px;
+    background-color:#efefef;
+    border: 1px solid black;
+    height:50px;
+    width: 600px;
+    margin-bottom: 20px;
+
+
+}

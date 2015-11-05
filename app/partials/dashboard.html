@@ -1,0 +1,194 @@
+<div class="row">
+    <div class="col-lg-12" ng-controller="NotificationsCtrl" cg-busy="{promise:mypromisedue,templateUrl:'partials/custom-template.html'}">
+        <h4 class="page-header"> Dashboard</h4>
+
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary" ng-controller="MemberCtrl2">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-user fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{MembersList2.length}}</div>
+                                <div>Members</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/members2">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green" ng-controller="GroupCtrl">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-users fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{listofGroups.length}}</div>
+                                <div>Groups</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/groups">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-yellow" ng-controller="NotificationsCtrl">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-bell fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{{NotificationsList.length}}</div>
+                                <div>Notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/notifications">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-red" ng-controller="DueCtrl">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-2 col-xs-offset-1">
+                                <i class="fa fa-calendar fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"> {{DueList.length}}</div>
+                                <div>Dues</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#/dues">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12" style="padding-left: 7px">
+                <div class="col-lg-4">
+                    <div class="panel panel-white" ng-controller="GroupCtrl">
+                        <div class="panel-heading"><i class="fa fa-users"></i> Groups ({{listofGroups.length}})
+
+                            <div class="btn-group pull-right">
+                                <a href="#/groups" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Group</a>
+
+
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Balance</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="repeated-item" data-ng-repeat="group in listofGroups | filter:query | orderBy:'_id'" >
+                                        <td>{{group._id}}</td>
+                                        <td>Rs.{{group.balance}}.00</td>
+
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                        <div class="panel panel-white" ng-controller="DueCtrl"  >
+                            <div class="panel-heading">
+                                <i class="fa fa-calendar fa-fw"></i> Upcoming Dues
+                                <div class="btn-group pull-right">
+                                    <a href="" style="color: #ffffff" class="btn btn-info btn-xs"> Go to Calender</a>
+
+
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="#/members/{{due.NIC}}" class="list-group-item" style="height: 1.5cm;" ng-repeat="due in DueList | orderBy:'DueDate'">
+                                        <i class="fa fa-calendar fa-fw"></i> {{due.FirstName}} {{due.LastName}}
+                                    <span class="pull-right text-muted small"><em>{{due.DueDate}}</em>
+                                    </span>
+                                    </a>
+
+
+                                </div>
+                                <!-- /.list-group -->
+
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-lg-4">
+                    <div class="panel panel-white" ng-controller="NotificationsCtrl">
+                        <div class="panel-heading" >
+                            <i class="fa fa-bell fa-fw"></i> Notifications
+                            <div class="btn-group pull-right">
+                                <a href="#/notifications" style="color: #ffffff" class="btn btn-warning btn-xs"> Go to Notifications</a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList | reverse">
+                                    <i class="fa fa-bell fa-fw"></i> {{notif.Info}}
+                                    <span class="pull-right text-muted small"><em>{{notif.Time}}</em>
+                                    </span>
+                                </a>
+
+
+                            </div>
+                            <!-- /.list-group -->
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
