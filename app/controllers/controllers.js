@@ -4,15 +4,48 @@
 
 
 
-app.controller('GroupCtrl', function($scope,$http,$rootScope){
+app.controller('QuizCtrl', function($scope,$http,$rootScope){
 
-    $scope.QuizList = [];
+    //$scope.QuizList = [];
+    var list1 = [];
+
+    socket.emit('allQuiz',{qid : 35});
+
+
+
+    socket.on('showQuiz', function(msg){
+        $scope.QuizList = msg;
+        console.log(msg);
+        console.log($scope.QuizList);
+        $scope.$apply();
+    });
+
+
+
 
     $scope.addQuiz = function () {
-        var array = {title:$scope.q.Title,id:$scope.QuizList.length};
+        var array = {QuizID:$scope.q.id, Name:$scope.q.Name, time :$scope.q.Time, CourseID: $scope.q.Course,
+            key : ['Mathematics','Level2'] };
         $scope.QuizList.push(array);
-        $scope.q.Title = "";
-    }
+
+
+        var quiz = {
+            id : $scope.q.id,
+            name : $scope.q.Name,
+            time : $scope.q.Time,
+            course: $scope.q.Course,
+            key : ['Mathematics','Level2']
+        };
+        socket.emit('addQuiz', quiz);
+
+        $scope.q.Name = "";
+        $scope.q.Time = null;
+        $scope.q.course = "";
+        $scope.q.id = null;
+        //$scope.q.key = null;
+    };
+
+
 
 });
 
@@ -22,6 +55,20 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
     function($scope, $routeParams, $http , $rootScope ) {
 
 
+        $scope.QuizID = $routeParams.quizId;
+
+
+        socket.emit('getQuiz',{ qid : $scope.QuizID });
+
+        socket.on('showQuiz', function(msg){
+            $scope.questions = msg  ;
+            console.log(msg);
+            $scope.$apply();
+
+
+        });
+
+
         $scope.options = [{text:"",id:0},{text:"",id:1}];
         $scope.answer = {text:""};
 
@@ -29,12 +76,28 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
             $scope.options.push({text:"",id:$scope.options.length});
         };
 
-        $scope.questions = [];
+        //$scope.questions = [];
+
         $scope.addQuestion = function()
         {
-            var question1 = {text:$scope.question,options:$scope.options,answer:$scope.answer.text};
+            var options = [];
+
+            for(var i=0;i<$scope.options.length;i++)
+                options.push($scope.options[i].text);
+
+            var question1 = {Q:$scope.question,O:options,A:$scope.answer.text};
+
             var newObject = JSON.parse(JSON.stringify(question1));
-            $scope.questions.push(newObject);
+            $scope.questions.Questions.push(newObject);
+
+
+            var questionToSend = {};
+            questionToSend.qid = $scope.QuizID;
+            questionToSend.q = $scope.question;
+            questionToSend.o = options;
+            questionToSend.a = $scope.answer.text;
+            socket.emit('addQues',questionToSend);
+
             //console.show(newObject);
             $scope.question = "";
             $scope.options = [{text:"",id:0},{text:"",id:1}];
@@ -43,8 +106,8 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
 
 
 
-        //console.log($routeParams);
-        $scope.GroupID = $routeParams.groupId;
+
+
 
         $scope.submit = function(){
 

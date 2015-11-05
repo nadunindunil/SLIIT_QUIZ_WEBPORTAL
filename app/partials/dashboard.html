@@ -5,14 +5,14 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary" ng-controller="MemberCtrl2">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-2 col-xs-offset-1">
                                 <i class="fa fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">{{MembersList2.length}}</div>
+                                <div class="huge"> 150</div>
                                 <div>Students </div>
                             </div>
                         </div>
@@ -27,14 +27,14 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green" ng-controller="GroupCtrl">
+                <div class="panel panel-green" ng-controller="QuizCtrl">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-2 col-xs-offset-1">
                                 <i class="fa fa-question-circle fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">{{listofGroups.length}}</div>
+                                <div class="huge">{{QuizList.length}}</div>
                                 <div>Quizzes </div>
                             </div>
                         </div>
@@ -49,14 +49,14 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow" ng-controller="NotificationsCtrl">
+                <div class="panel panel-yellow">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-2 col-xs-offset-1">
                                 <i class="fa fa-bell fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">{{NotificationsList.length}}</div>
+                                <div class="huge"> 14</div>
                                 <div>Notifications</div>
                             </div>
                         </div>
@@ -71,14 +71,14 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red" ng-controller="DueCtrl">
+                <div class="panel panel-red" >
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-2 col-xs-offset-1">
                                 <i class="fa fa-calendar fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge"> {{DueList.length}}</div>
+                                <div class="huge"> 3</div>
                                 <div>Class Records</div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-lg-12" style="padding-left: 7px">
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="GroupCtrl">
+                    <div class="panel panel-white" ng-controller="DueCtrl">
                         <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{QuizList.length}})
 
                             <div class="btn-group pull-right">

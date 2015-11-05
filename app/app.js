@@ -31,7 +31,7 @@ app.config(['$routeProvider', function($routeProvider) {
         }).
         when('/quizzes', {
           templateUrl: 'view3/quizzes.html',
-          controller: 'GroupCtrl'
+          controller: 'QuizCtrl'
 
         })
         .
@@ -40,13 +40,13 @@ app.config(['$routeProvider', function($routeProvider) {
           controller: 'RecordCtrl'
 
         })
-        .when('/quizzes/:groupId', {
+      .when('/quizzes/:quizId', {
           templateUrl: 'view2/questions.html',
           controller: 'MemberCtrl'
         }).
         when('/dashboard', {
           templateUrl: 'partials/dashboard.html',
-          controller: 'GroupCtrl'
+          controller: 'DueCtrl'
         }).
         when('/profile', {
           templateUrl: 'partials/profile.html',

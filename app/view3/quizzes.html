@@ -6,7 +6,7 @@
     </ol>
 
 </div>
-<div class="row" ng-controller="GroupCtrl" cg-busy="{promise:mypromise2,templateUrl:'partials/custom-template.html'}" xmlns="http://www.w3.org/1999/html">
+<div class="row" >
   <div class="col-lg-12">
     <h4 class="page-header"> Quiz Management</h4>
     <div class="under">
@@ -27,13 +27,37 @@
                     <div class="modal-body">
                         <div class="row" style="padding-left: 15px;">
                             <div class="col-lg-9 col-lg-offset-1 form">
+                                <div class="row from-group" style="padding-bottom: 5px" >
+                                    <label class="pull-left" style="padding-left: 1cm"> ID:</label>
+
+                                    <input class="form-control pull-right"
+                                           style="width: 300px; height: 35px" data-ng-model="q.id" type="number"
+                                           placeholder="ID">
+
+                                </div>
 
                                 <div class="row from-group" style="padding-bottom: 5px" >
                                     <label class="pull-left" style="padding-left: 1cm"> Quiz Title:</label>
 
                                     <input class="form-control pull-right"
-                                           style="width: 300px; height: 35px" data-ng-model="q.Title" type="text"
+                                           style="width: 300px; height: 35px" data-ng-model="q.Name" type="text"
                                            placeholder="Title">
+
+                                </div>
+                                <div class="row from-group" style="padding-bottom: 5px" >
+                                    <label class="pull-left" style="padding-left: 1cm"> Time:</label>
+
+                                    <input class="form-control pull-right"
+                                           style="width: 300px; height: 35px" data-ng-model="q.Time" type="number"
+                                           placeholder="Time">
+
+                                </div>
+                                <div class="row from-group" style="padding-bottom: 5px" >
+                                    <label class="pull-left" style="padding-left: 1cm"> Course:</label>
+
+                                    <input class="form-control pull-right"
+                                           style="width: 300px; height: 35px" data-ng-model="q.Course" type="text"
+                                           placeholder="Course">
 
                                 </div>
 
@@ -48,7 +72,7 @@
                             <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 
                             <a href="" class="btn btn-success btn-sm" type="button" data-dismiss="modal"
-                               data-ng-disabled=" !q.Title  "
+                               data-ng-disabled=" !q.Name  "
                                ng-click="addQuiz()"
                                role="button"> Add Quiz</a>
                         </div>
@@ -78,23 +102,27 @@
                   <tr >
                       <th>ID</th>
                       <th>Quiz Title</th>
-                      <th>Top Scorer</th>
+                      <th>Course</th>
                       <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr data-ng-repeat="q1 in QuizList | filter:query | orderBy:'Name'">
-                      <td>{{q1.id}} </td>
+
+                  <tr data-ng-repeat="ques in QuizList | filter:query " >
+                      <td>{{ques.QuizID}} </td>
                       <!--<td>{{group._id}}</td>-->
-                      <td> {{q1.title}}</td>
-                      <td> Nadun Indunil</td>
+                      <td> {{ques.Name}}</td>
+                      <td> {{ques.CourseID}}</td>
+
+
                       <td><div class="btn-group">
 
-                          <a href="#/quizzes/23" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-eye"></i> View Quiz</a>
+                          <a href="#/quizzes/{{ques.QuizID}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-eye"></i> View Quiz</a>
                           <a href="" class="btn btn-danger btn-xs" ng-click="deleteGroup(group._id);" role="button"  style="color: #ffffff"><i class="fa fa-trash-o"></i></a>
 
 
-                      </div></td>
+                      </div>
+                      </td>
                   </tr>
 
                   </tbody>
