@@ -11,14 +11,15 @@ app.controller('GroupCtrl', function($scope,$http,$rootScope){
     $scope.listofGroups= null;
     var groupList = null;
 
-    $scope.mypromise2 = $http.get('http://104.236.206.83:3000/group.summary')
+    //$scope.mypromise2 =
+        $http.get('http://104.236.206.83:3000/group.summary')
         .success(function(data) {
             console.log(data);
             $scope.listofGroups = data;
             var groupList = $scope.listofGroups;
-        }
+        });
 
-    );
+    //);
 
 
 
@@ -111,251 +112,35 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
     function($scope, $routeParams, $http , $rootScope ) {
 
 
+        $scope.options = [{text:"",id:0},{text:"",id:1}];
+        $scope.answer = {text:""};
+
+        $scope.addOption = function(){
+            $scope.options.push({text:"",id:$scope.options.length});
+        };
+
+        $scope.questions = [];
+        $scope.addQuestion = function()
+        {
+            var question1 = {text:$scope.question,options:$scope.options,answer:$scope.answer.text};
+            var newObject = JSON.parse(JSON.stringify(question1));
+            $scope.questions.push(newObject);
+            //console.show(newObject);
+            $scope.question = "";
+            $scope.options = [{text:"",id:0},{text:"",id:1}];
+            $scope.answer.text = "";
+        };
 
 
-
-        $scope.MembersList=null;
-        var list = null;
-        var fil = null;
-        var Area = null;
-        var balance= null;
 
         //console.log($routeParams);
-        $scope.GroupID = $routeParams.groupId;
-        $scope.mypromise = $http.get('http://104.236.206.83:3000/groupinfo/' + $routeParams.groupId ).success(function(data) {
-            $scope.MembersList = data;
-            list = data;
-            console.log(data);
-            init2();
-        });
+        $scope.GroupID = $routeParams.groupId
 
 
 
-        $scope.reset = function(){
-            $scope.firstName = null;
-            $scope.lastName = null;
-            $scope.DDate = null;
-            $scope.nic = null;
-            $scope.Balance = null;
-            $scope.area = null;
-            $scope.addr = null;
-            $scope.telephone = null;
 
-        };
-
-
-
-        function init2(){
-
-
-            if (list.length != 0){
-                console.log("nad");
-                 fil = list[0].ProductID;
-                 $scope.area = list[0].Area;
-                Area = $scope.area;
-                balance = list[0].Balance;
-                $scope.Balance = balance;
-            }
-            else{
-                console.log("in else");
-                 fil = $rootScope.PID;
-                $scope.area = $rootScope.area;
-                Area = $scope.area;
-                balance = $rootScope.balTOmem;
-                $scope.Balance = balance;
-
-            }
-            console.log(balance);
-
-
-
-        }
-
-        //input.charAt(0).toUpperCase() + input.substr(1).toLowerCase();
-
-        $scope.addMember = function(){
-            var FName  = $scope.firstName.charAt(0).toUpperCase() + $scope.firstName.substr(1).toLowerCase() ;
-            var LName  = $scope.lastName.charAt(0).toUpperCase() + $scope.lastName.substr(1).toLowerCase();
-            var ddate  = $scope.DDate;
-            var  Nic   = $scope.nic ;
-
-            //var Area   = $scope.area.charAt(0).toUpperCase() + $scope.area.substr(1).toLowerCase();
-            var gid =    $scope.GroupID;
-            var Addr =   $scope.address.charAt(0).toUpperCase() + $scope.address.substr(1).toLowerCase();
-            var teleph = $scope.telephone;
-
-
-            console.log(Addr);
-
-            $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Member "+ FName+" "+LName + " added to Group " + $scope.GroupID });
-
-            console.log("after post noti");
-
-            $http.post('http://104.236.206.83:3000/adduser',{ id : Nic ,
-                first : FName ,
-                last: LName,
-                area: Area,
-                amount : balance,
-                date : ddate,
-                gid : gid,
-                address :Addr,
-                tel : teleph,
-                product : fil
-            });
-
-            $scope.MembersList.push({NIC : Nic ,
-                FirstName : FName ,
-                LastName : LName,
-                Area: Area,
-                Balance : balance,
-                DueDate : ddate
-
-
-        });
-
-        };
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////
-
-        $scope.deleteMember=function(Id){
-
-            var user = null;
-
-            //for (var i = $scope.MembersList.length - 1; i >= 0; i--) {
-            //    console.log($scope.MembersList[i].NIC);
-            //    if ($scope.MembersList[i].NIC === Id) {
-            //        //$scope.MembersList.splice(i, 1);
-            //        console.log("success in local",MembersList[i].FirstName);
-            //        break;
-            //    }
-            //}
-            $http.get('http://104.236.206.83:3000/find/' + Id ).success(function(data) {
-                //user = data;
-                console.log(data.FirstName,data.LastName);
-                $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Member "+ data.FirstName +" " + data.LastName + " deleted from Group " + $scope.GroupID });
-
-            });
-
-            // send notifications needed
-
-            $scope.mypromiseDmember = $http.get('http://104.236.206.83:3000/delete/' + Id ).success(function(data) {
-                $scope.MembersList = data;
-                console.log(data);
-                console.log("success");
-
-
-            });
-
-            $scope.mypromise = $http.get('http://104.236.206.83:3000/groupinfo/' + $routeParams.groupId ).success(function(data) {
-                $scope.MembersList = data;
-                list = data;
-                console.log(data);
-                init2();
-            });
-
-
-        };
-
-
-        var amountz = null;
-        var dueDatez = null;
-        var TDate = null;
-        var CSE  = null;
-        var idz = null;
-        console.log(idz);
-
-
-        $scope.trans = function (idz,amountz,dueDatez,TDate,CSE) {
-
-            $http.get('http://104.236.206.83:3000/find/' +idz ).success(function(data) {
-                $scope.Member = data;
-                list = data;
-                console.log(data);
-
-                var y= 0;
-                var c =0;
-
-
-                if ($scope.Member.Balance < amountz || amountz < 1 ){
-
-
-                    alert("enter valid amount!");
-                }
-                else if (dueDatez < TDate){
-
-                    alert("Due Date must be greater than Ttoday's date!");
-
-
-                }
-                else{
-
-                    console.log("loop ends");
-                    $http.post('http://104.236.206.83:3000/transaction',{
-                        id :idz,
-                        amount : amountz,
-                        due: dueDatez,
-                        date: TDate,
-                        code:CSE
-
-                    });
-                    console.log("pre");
-
-
-                    console.log(idz,amountz,dueDatez,TDate,CSE);
-
-
-                    // send notifications needed
-
-                    $http.get('http://104.236.206.83:3000/find/' + idz ).success(function(data) {
-                        //user = data;
-                        console.log(data.FirstName,data.LastName);
-                        $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Member "+ data.FirstName +" " + data.LastName +" in "+ data.Group + " paid Rs." + amountz +".00"});
-
-                    });
-
-                    getList();
-
-
-                    $scope.NatIdentity = null;
-                    $scope.Bal = null;
-                    $scope.DuDate = null;
-                    $scope.toDate = null;
-                    $scope.offName = null;
-                }
-
-
-
-
-
-
-            });
-
-
-
-
-
-
-
-
-
-        };
-
-
-        $scope.getList = function(){
-            $scope.MembersList=null;
-
-            $scope.mypromise = $http.get('http://104.236.206.83:3000/groupinfo/' + $routeParams.groupId ).success(function(data) {
-                $scope.MembersList = data;
-                list = data;
-                console.log(data);
-                init2();
-            });
-        };
 
     }]
-
-
 );
 
 

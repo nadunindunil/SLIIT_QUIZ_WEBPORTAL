@@ -27,17 +27,6 @@
                     <div class="modal-body">
                         <div class="row" style="padding-left: 15px;">
                             <div class="col-lg-9 col-lg-offset-1 form">
-                                <!--<div class="row" style="padding-bottom: 5px">-->
-                                    <!--<label class="pull-left" style="padding-left: 1cm">Balance: </label>-->
-
-                                    <!--<div class="from-group input-group" style="padding-left: 1.7cm">-->
-                                        <!--<span class="input-group-addon">Rs.</span>-->
-                                        <!--<input class="form-control"-->
-                                               <!--style=" height: 35px" data-ng-model="Balance" type="number" placeholder="Balance">-->
-                                        <!--<span class="input-group-addon">.00 </span>-->
-
-                                    <!--</div>-->
-                                <!--</div>-->
 
                                 <div class="row from-group" style="padding-bottom: 5px" >
                                     <label class="pull-left" style="padding-left: 1cm"> Quiz Title:</label>
@@ -47,49 +36,6 @@
                                            placeholder="Title">
 
                                 </div>
-
-                                <!--<div class="row from-group" style="padding-bottom: 5px">-->
-                                    <!--<label class="pull-left" style="padding-left: 1cm">Area:</label>-->
-
-                                    <!--<input class="form-control pull-right"-->
-                                           <!--style="width: 300px; height: 35px" data-ng-model="area" type="text" placeholder="Area">-->
-                                <!--</div>-->
-
-                                <!--<div class="row from-group" style="padding-bottom: 5px">-->
-                                    <!--<label class="pull-left" style="padding-left: 1cm">Product ID:</label>-->
-
-
-                                    <!--<select style="width: 300px; height: 35px" data-ng-model="PID" class="form-control pull-right">-->
-                                        <!--<option>PURO 1500</option>-->
-                                        <!--<option>PURO 3000</option>-->
-                                        <!--<option>PURO 4500</option>-->
-                                        <!--<option>PURO 6000</option>-->
-                                        <!--<option>PURO 9000</option>-->
-                                        <!--<option>PURO 12000</option>-->
-                                    <!--</select>-->
-
-
-
-                                    <!--&lt;!&ndash;<input class="form-control pull-right"-->
-                                           <!--style="width: 300px; height: 35px" data-ng-model="PID" type="text" placeholder="Product">-->
-                                <!--&ndash;&gt;-->
-                                <!--</div>-->
-
-                                <!--<div class="row" style="padding-bottom: 5px">-->
-                                    <!--<label class="pull-left" style="padding-left: 1cm"> ID:</label>-->
-
-                                    <!--<div class="from-group input-group" style="padding-left: 2.8cm">-->
-                                        <!--<span class="input-group-addon" data-ng-model="preID"> {{area | limitTo : 3 : 0 | uppercase}}</span>-->
-                                        <!--<input class="form-control"-->
-                                               <!--style=" height: 35px" data-ng-model="id" type="number"  >-->
-
-
-                                    <!--</div>-->
-                                <!--</div>-->
-
-
-
-
 
                             </div>
                         </div>
@@ -120,7 +66,7 @@
 
           <div class="panel-heading clearfix">
 
-              <div class="pull-left"> Registered Groups ({{listofGroups.length}})</div>
+              <div class="pull-left"> Quizzes ({{listofGroups.length}})</div>
               <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 25px;font-family:Arial, FontAwesome">
 
           </div>
@@ -137,13 +83,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr class="repeated-item" data-ng-repeat="group in listofGroups | filter:query | orderBy:'_id'" >
-                      <td>{{group._id}}</td>
-                      <td>{{group.number}}</td>
-                      <td>Rs.{{group.balance}}.00</td>
+                  <tr>
+                      <td> 23 </td>
+                      <!--<td>{{group._id}}</td>-->
+                      <td> Graph Theory</td>
+                      <td> Nadun Indunil</td>
                       <td><div class="btn-group">
 
-                          <a href="#/groups/{{group._id}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-users"></i> View Quiz</a>
+                          <a href="#/quizzes/23" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-users"></i> View Quiz</a>
                           <a href="" class="btn btn-danger btn-xs" ng-click="deleteGroup(group._id);" role="button"  style="color: #ffffff"><i class="fa fa-trash-o"></i></a>
 
 
@@ -155,6 +102,39 @@
           </div>
 
       </div>
+
+
+        <!--<div class="panel-body">-->
+            <!--<div class="dataTable_wrapper">-->
+                <!--<table class="table table-hover">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>ID</th>-->
+                        <!--<th>Quiz Title</th>-->
+                        <!--<th>Top Scorer</th>-->
+                        <!--<th>Action</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                    <!--<tr class="repeated-item" data-ng-repeat="group in listofGroups | filter:query | orderBy:'_id'" >-->
+                        <!--<td> 23 </td>-->
+                        <!--&lt;!&ndash;<td>{{group._id}}</td>&ndash;&gt;-->
+                        <!--<td> Graph Theory</td>-->
+                        <!--<td> Nadun Indunil</td>-->
+                        <!--<td><div class="btn-group">-->
+
+                            <!--<a href="#/groups/{{group._id}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-users"></i> View Quiz</a>-->
+                            <!--<a href="" class="btn btn-danger btn-xs" ng-click="deleteGroup(group._id);" role="button"  style="color: #ffffff"><i class="fa fa-trash-o"></i></a>-->
+
+
+                        <!--</div></td>-->
+                    <!--</tr>-->
+
+                    <!--</tbody>-->
+                <!--</table>-->
+            <!--</div>-->
+
+        <!--</div>-->
 
     </div>
 
