@@ -85,63 +85,8 @@ app.controller('MemberCtrl2', ['$scope', '$http',
 
 );
 
-app.controller('TransCtrl', ['$scope', '$http',
-        function($scope, $http) {
-
-            //var x = document.getElementById("nat").defaultValue;
-
-            //var idz = $scope.NatIdentity;
-            var amountz = null;
-            var dueDatez = null;
-            var TDate = null;
-            var CSE  = null;
-            var idz = null;
-            console.log(idz);
-
-            //$scope.trans = function (idz,amountz,dueDatez,TDate,CSE) {
-            //    $http.post('http://104.236.206.83:3000/transaction',{
-            //        id :idz,
-            //        amount : amountz,
-            //        due: dueDatez,
-            //        date: TDate,
-            //        code:CSE
-            //
-            //    });
-            //    console.log(idz,amountz,dueDatez,TDate,CSE);
-            //
-            //    $scope.mypromise = $http.get('http://104.236.206.83:3000/groupinfo/' + $routeParams.groupId ).success(function(data) {
-            //        $scope.MembersList = data;
-            //        list = data;
-            //        console.log(data);
-            //        init2();
-            //    });
-            //
-            //
-            //
-            //};
-
-            $scope.setNIC =function(val){
-
-                $scope.NatIdentity= val;
-
-            };
 
 
-
-
-        }]
-
-
-);
-
-
-/*
-app.controller('MemberCtrl', ['$scope', 'membersFact', function($scope, membersFact)
-{
-    $scope.MembersList = membersFact.GetData();
-
-}]);
-*/
 
 
 app.controller('MemberProfileCtrl', ['$scope', '$routeParams', '$http',

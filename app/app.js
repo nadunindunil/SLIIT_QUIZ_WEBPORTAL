@@ -34,6 +34,12 @@ app.config(['$routeProvider', function($routeProvider) {
           controller: 'GroupCtrl'
 
         })
+        .
+        when('/quiz_records', {
+          templateUrl: 'partials/record.html',
+          controller: 'RecordCtrl'
+
+        })
         .when('/quizzes/:groupId', {
           templateUrl: 'view2/questions.html',
           controller: 'MemberCtrl'
