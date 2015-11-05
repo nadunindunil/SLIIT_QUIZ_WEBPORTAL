@@ -25,17 +25,17 @@ app.config(['$routeProvider', function($routeProvider) {
           templateUrl: 'partials/dues.html',
           controller: 'DueCtrl'
         }).
-        when('/members/:NIC', {
+        when('/questions/:NIC', {
           templateUrl: 'partials/memProfile.html',
           controller: 'MemberProfileCtrl'
         }).
-        when('/groups', {
-          templateUrl: 'view3/groups.html',
+        when('/quizzes', {
+          templateUrl: 'view3/quizzes.html',
           controller: 'GroupCtrl'
 
         })
-        .when('/groups/:groupId', {
-          templateUrl: 'view2/members.html',
+        .when('/quizzes/:groupId', {
+          templateUrl: 'view2/questions.html',
           controller: 'MemberCtrl'
         }).
         when('/dashboard', {

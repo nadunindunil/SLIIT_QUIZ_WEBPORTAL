@@ -2,18 +2,18 @@
   <ol class="breadcrumb" style="background-color: transparent">
     <li><a href="#/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#/groups"><i class="fa fa-users"></i> Quizzes</a></li>
-    <li class="active"> Students</li>
+    <li class="active"> Quiz</li>
   </ol>
 
 </div>
 <div class="row " cg-busy="{promise:mypromise,templateUrl:'partials/custom-template.html'}" xmlns="http://www.w3.org/1999/html">
   <div class="col-lg-12">
-    <h4> Students Management</h4>
+    <h4> Quiz</h4>
     <div class="under">
 
       <!-- Button trigger modal -->
       <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-        New Student
+        New Question
       </button>
 
       <!-- Modal -->
@@ -22,79 +22,86 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel"> Add new Quiz</h4>
+              <h4 class="modal-title" id="myModalLabel"> Add new Question</h4>
             </div>
             <div class="modal-body">
               <form data-toggle="validator" role="form">
                 <div class="row" style="padding-left: 15px;">
                   <div class="col-lg-9 col-lg-offset-1 form">
                     <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">First Name:</label>
+                      <label class="pull-left" style="padding-left: 1cm">Question:</label>
 
                       <input class="form-control pull-right" 
-                             style="width: 300px; height: 35px" data-ng-model="firstName" type="text" placeholder="First Name">
+                             style="width: 300px; height: 35px" data-ng-model="firstName" type="text" placeholder="Question">
                     </div>
                     <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">Last Name:</label>
+                      <label class="pull-left" style="padding-left: 1cm">Options:</label>
 
                       <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Last Name">
+                             style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Options">
                     </div>
                     <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">NIC:</label>
-
-                      <div class="from-group input-group" style="padding-left: 1.7cm">
-
-                        <input class="form-control pull-right"
-                               style="width: 267px; height: 35px" data-ng-model="nic" type="number" maxlength="9" placeholder="NIC">
-                        <span class="input-group-addon">   V</span>
-
-                      </div>
-                    </div>
-
-                    <div class="row" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">Loan :</label>
-
-                      <div class="from-group input-group" style="padding-left: 2.1cm">
-                        <span class="input-group-addon">Rs.</span>
-                        <input class="form-control"
-                               style=" height: 35px " data-ng-model="Balance" maxlength="9" type="number" placeholder="Balance" readonly>
-                        <span class="input-group-addon">.00</span>
-
-                      </div>
-                    </div>
-
-
-                    <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">Due Date:</label>
-
+                      <label class="pull-left" style="padding-left: 1cm">Answer:</label>
 
                       <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="DDate" type="date">
-
-                    </div>
-                    <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">Area:</label>
-
-                      <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="area" type="text" placeholder="Area" readonly>
+                             style="width: 300px; height: 35px" data-ng-model="lastName" type="text" placeholder="Answer">
                     </div>
 
-                    <div class="row from-group" style="padding-bottom: 5px" >
-                      <label class="pull-left" style="padding-left: 1cm">Telephone:</label>
+                    <!--<div class="row from-group" style="padding-bottom: 5px">-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">NIC:</label>-->
 
-                      <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="telephone" type="text"
-                             placeholder="Telephone" minlength="10" data-minlength="6" maxlength="10">
+                      <!--<div class="from-group input-group" style="padding-left: 1.7cm">-->
 
-                    </div>
+                        <!--<input class="form-control pull-right"-->
+                               <!--style="width: 267px; height: 35px" data-ng-model="nic" type="number" maxlength="9" placeholder="NIC">-->
+                        <!--<span class="input-group-addon">   V</span>-->
 
-                    <div class="row from-group" style="padding-bottom: 5px">
-                      <label class="pull-left" style="padding-left: 1cm">Address:</label>
+                      <!--</div>-->
+                    <!--</div>-->
 
-                      <input class="form-control pull-right"
-                             style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">
-                    </div>
+                    <!--<div class="row" style="padding-bottom: 5px">-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">Loan :</label>-->
+
+                      <!--<div class="from-group input-group" style="padding-left: 2.1cm">-->
+                        <!--<span class="input-group-addon">Rs.</span>-->
+                        <!--<input class="form-control"-->
+                               <!--style=" height: 35px " data-ng-model="Balance" maxlength="9" type="number" placeholder="Balance" readonly>-->
+                        <!--<span class="input-group-addon">.00</span>-->
+
+                      <!--</div>-->
+                    <!--</div>-->
+
+
+                    <!--<div class="row from-group" style="padding-bottom: 5px">-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">Due Date:</label>-->
+
+
+                      <!--<input class="form-control pull-right"-->
+                             <!--style="width: 300px; height: 35px" data-ng-model="DDate" type="date">-->
+
+                    <!--</div>-->
+                    <!--<div class="row from-group" style="padding-bottom: 5px">-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">Area:</label>-->
+
+                      <!--<input class="form-control pull-right"-->
+                             <!--style="width: 300px; height: 35px" data-ng-model="area" type="text" placeholder="Area" readonly>-->
+                    <!--</div>-->
+
+                    <!--<div class="row from-group" style="padding-bottom: 5px" >-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">Telephone:</label>-->
+
+                      <!--<input class="form-control pull-right"-->
+                             <!--style="width: 300px; height: 35px" data-ng-model="telephone" type="text"-->
+                             <!--placeholder="Telephone" minlength="10" data-minlength="6" maxlength="10">-->
+
+                    <!--</div>-->
+
+                    <!--<div class="row from-group" style="padding-bottom: 5px">-->
+                      <!--<label class="pull-left" style="padding-left: 1cm">Address:</label>-->
+
+                      <!--<input class="form-control pull-right"-->
+                             <!--style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">-->
+                    <!--</div>-->
 
 
 
