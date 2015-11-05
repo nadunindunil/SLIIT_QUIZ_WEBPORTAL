@@ -6,106 +6,16 @@
 
 app.controller('GroupCtrl', function($scope,$http,$rootScope){
 
-    $rootScope.area = null;
-    $rootScope.PID = null;
-    $scope.listofGroups= null;
-    var groupList = null;
+    $scope.QuizList = [];
 
-    //$scope.mypromise2 =
-        $http.get('http://104.236.206.83:3000/group.summary')
-        .success(function(data) {
-            console.log(data);
-            $scope.listofGroups = data;
-            var groupList = $scope.listofGroups;
-        });
-
-    //);
-
-
-
-
-    $scope.insertQuiz = function(){
-        // quiz function is  partially done - Nadun
-        var Balance = $scope.Balance;
-        var ID = $scope.id;
-        var product = $scope.PID;
-        var title = $scope.Title;
-
-        var NextBal = Balance/Number;
-        var Area = $scope.area.charAt(0).toUpperCase() + $scope.area.substr(1).toLowerCase();
-        var pre = Area.substring(0, 3);
-        var pre2 = pre.toUpperCase();
-        ID = pre2+ ID;
-        $rootScope.area = Area;
-        $rootScope.PID = product;
-        $rootScope.balTOmem = NextBal;
-
-        console.log(title);
-
-        // send notifications needed
-        var x= 0;
-        for( var i=0 ; i < $scope.listofGroups.length ; i++ ){
-            console.log("in loop");
-            if ($scope.listofGroups[i]._id == ID){
-                alert(" Quiz name " + title + " Exist!");
-                x=1;
-                console.log("loop ends");
-                break;
-
-            }
-
-        }
-
-        if (x == 0){
-
-            $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Quiz " + title
-            +" added!"});
-
-
-            //groupService.insertGroup(Balance,Area,ID,number);
-            $scope.listofGroups.push({ _id : ID ,
-                number : Number ,
-                balance: Balance,
-                area: Area} );
-        }
-
-
-    };
-
-
-
-    $scope.deleteGroup = function(Id){
-
-        $scope.mypromiseDGroups = $http.get('http://104.236.206.83:3000/deletegroup/' + Id ).success(function(data) {
-            $scope.listofGroups = data;
-            console.log(data);
-            console.log("success group delete");
-
-
-        });
-
-
-        $scope.mypromise = $http.get('hhttp://104.236.206.83:3000/group.summary').success(function(data) {
-            $scope.listofGroups = data;
-
-            console.log(data);
-            init2();
-        });
-
-        $http.post('http://104.236.206.83:3000/createNotifi',{ info: "Group "+ Id + " Deleted " });
-
-
+    $scope.addQuiz = function () {
+        var array = {title:$scope.q.Title,id:$scope.QuizList.length};
+        $scope.QuizList.push(array);
+        $scope.q.Title = "";
     }
+
 });
 
-/*
-app.controller('GroupCtrl', ['$scope', 'groupsFact', function($scope, groupsFact)
-{
-    $scope.listofGroups = groupsFact.GetData();
-
-
-}]);
-*/
 
 
 app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
@@ -134,7 +44,20 @@ app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
 
 
         //console.log($routeParams);
-        $scope.GroupID = $routeParams.groupId
+        $scope.GroupID = $routeParams.groupId;
+
+        $scope.submit = function(){
+
+            console.log("Nadun1");
+            var sample = {
+                id : 25,
+                name : 'Mathz'
+            };
+
+            socket.emit('addQuiz', sample);
+            console.log("Nadun");
+
+        };
 
 
 

@@ -180,6 +180,8 @@
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
@@ -196,7 +198,7 @@
   <script src="bower_components/parse/dist/parsley.min.js"></script>
   <script src="components/angular-datepicker.js"></script>
   <script>
-
+    var socket = io.connect('http://104.131.189.142:3000');
 
     $("#myField").keyup(function() {
       $("#myField").val(this.value.match(/[0-9]*/));

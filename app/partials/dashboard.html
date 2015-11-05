@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12" ng-controller="NotificationsCtrl" cg-busy="{promise:mypromisedue,templateUrl:'partials/custom-template.html'}">
+    <div class="col-lg-12" ng-controller="NotificationsCtrl" >
         <h4 class="page-header"> Dashboard</h4>
 
         <!-- /.row -->
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#/groups">
+                    <a href="#/quizzes">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"> {{DueList.length}}</div>
-                                <div>Attempts by students</div>
+                                <div>Class Records</div>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
             <div class="col-lg-12" style="padding-left: 7px">
                 <div class="col-lg-4">
                     <div class="panel panel-white" ng-controller="GroupCtrl">
-                        <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{listofGroups.length}})
+                        <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{QuizList.length}})
 
                             <div class="btn-group pull-right">
                                 <a href="#/quizzes" style="color: #ffffff" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New Group</a>

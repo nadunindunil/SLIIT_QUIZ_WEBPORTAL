@@ -15,6 +15,9 @@
       <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
         New Question
       </button>
+      <button class="btn btn-warning btn-xs" ng-click="submit()"><i class="fa fa-send" ></i>
+         Submit
+      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,9 +85,9 @@
           <table class="table table-hover">
             <thead>
             <tr>
-              <th>question</th>
+              <th>Question</th>
               <th>Options</th>
-              <th>answer</th>
+              <th>Answer</th>
               <!--<th>Top Score</th>-->
               <!--<th>Area</th>-->
               <th>Action</th>
@@ -108,12 +111,12 @@
               <td><div class="btn-group">
 
                 <!-- Button trigger modal -->
-                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal1"><i class="fa fa-plus"></i>
-                  view
+                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#quizModel{{$index}}"><i class="fa fa-eye"></i>
+                   view
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                <div class="modal fade" id="quizModel{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -135,8 +138,12 @@
                             <div class="row from-group" style="padding-bottom: 5px" >
                               <label class="pull-left" style="padding-left: 1cm"> Options :</label>
 
-                              <label class="pull-right"  data-ng-repeat="nad in quest.options"
-                                     style="width: 300px; height: 35px" type="text"> {{nad.text}}</label>
+                              <ul class="pull-right">
+                                <li data-ng-repeat="nad in quest.options">
+                                  <label
+                                         style="width: 300px; height: 35px" type="text"> {{nad.text}}</label>
+                                </li>
+                              </ul>
 
                             </div>
 
