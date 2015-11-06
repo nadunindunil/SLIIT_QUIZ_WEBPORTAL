@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"> 3</div>
-                                <div>Class Records</div>
+                                <div>Classes</div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-lg-12" style="padding-left: 7px">
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="DueCtrl">
+                    <div class="panel panel-white" ng-controller="d1Ctrl">
                         <div class="panel-heading"><i class="fa fa-question-circle"></i> Quizzes ({{QuizList.length}})
 
                             <div class="btn-group pull-right">
@@ -121,9 +121,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="repeated-item" data-ng-repeat="group in listofGroups | filter:query | orderBy:'_id'" >
-                                        <td>{{group._id}}</td>
-                                        <td>Rs.{{group.balance}}.00</td>
+                                    <tr class="repeated-item" data-ng-repeat="g in top | filter:query | orderBy:'_id'" >
+                                        <td>{{g.title}}</td>
+                                        <td>{{g.name}}</td>
+                                        <td> {{g.score}}</td>
 
                                     </tr>
 
@@ -137,20 +138,16 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                        <div class="panel panel-white" ng-controller="DueCtrl"  >
+                        <div class="panel panel-white" ng-controller="courseCtrl">
                             <div class="panel-heading">
-                                <i class="fa fa-calendar fa-fw"></i> Upcoming Dues
-                                <div class="btn-group pull-right">
-                                    <a href="" style="color: #ffffff" class="btn btn-info btn-xs"> Go to Calender</a>
+                                <i class="fa fa-calendar fa-fw"></i> Course Averages
 
-
-                                </div>
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <a href="#/members/{{due.NIC}}" class="list-group-item" style="height: 1.5cm;" ng-repeat="due in DueList | orderBy:'DueDate'">
-                                        <i class="fa fa-calendar fa-fw"></i> {{due.FirstName}} {{due.LastName}}
-                                    <span class="pull-right text-muted small"><em>{{due.DueDate}}</em>
+                                    <a href="#/members/{{due.NIC}}" class="list-group-item" style="height: 1.5cm;" ng-repeat="due in c1">
+                                        <i class="fa fa-calendar fa-fw"></i> {{due.title}}
+                                    <span class="pull-right text-muted small"><em>{{due.avg}}</em>
                                     </span>
                                     </a>
 
@@ -165,16 +162,16 @@
                 <div class="col-lg-4">
                     <div class="panel panel-white" ng-controller="NotificationsCtrl">
                         <div class="panel-heading" >
-                            <i class="fa fa-bell fa-fw"></i> Notifications
+                            <i class="fa fa-bell fa-fw"></i> Quiz Summary
                             <div class="btn-group pull-right">
                                 <a href="#/notifications" style="color: #ffffff" class="btn btn-warning btn-xs"> Go to Notifications</a>
                             </div>
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList | reverse">
-                                    <i class="fa fa-bell fa-fw"></i> {{notif.Info}}
-                                    <span class="pull-right text-muted small"><em>{{notif.Time}}</em>
+                                <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList">
+                                    <i class="fa fa-bell fa-fw"></i> {{notif}}
+                                    <!--<span class="pull-right text-muted small"><em>{{notif.Time}}</em>-->
                                     </span>
                                 </a>
 

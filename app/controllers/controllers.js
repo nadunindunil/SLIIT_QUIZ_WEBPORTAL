@@ -3,8 +3,15 @@
  */
 
 
+app.controller('courseCtrl', function($scope){
 
-app.controller('QuizCtrl', function($scope,$http,$rootScope){
+    $scope.c1 = [{title : 'Mathematics', avg : '66.78'}, {title:'Science' , avg : '89.00'}];
+
+});
+
+
+
+app.controller('QuizCtrl', function($scope){
 
     //$scope.QuizList = [];
     var list1 = [];
@@ -51,7 +58,7 @@ app.controller('QuizCtrl', function($scope,$http,$rootScope){
 
 
 
-app.controller('MemberCtrl', ['$scope', '$routeParams', '$http', '$rootScope',
+app.controller('MemberCtrl', ['$scope', '$routeParams',
     function($scope, $routeParams, $http , $rootScope ) {
 
 
@@ -174,17 +181,13 @@ app.controller('MemberProfileCtrl', ['$scope', '$routeParams', '$http',
 
 );
 
-app.controller('DueCtrl', ['$scope', '$http',
+app.controller('d1Ctrl', ['$scope', '$http',
         function($scope, $http) {
 
+        $scope.top = [{title : 'Graph Theory', name : 'Lakmal Meegahapola', score : 99},
+            {title : 'Mathematics', name : 'Dinuka Salvathura', score : 97}];
 
 
-            $scope.DueList=null;
-            //console.log($routeParams);
-
-            $scope.mypromisedue = $http.get('http://104.236.206.83:3000/recent').success(function(data) {
-                $scope.DueList = data;
-            });
 
 
         }]
@@ -198,13 +201,7 @@ app.controller('NotificationsCtrl', ['$scope', '$http',
 
 
 
-            $scope.NotificationsList=null;
-            //console.log($routeParams);
-
-            $scope.mypromisedue = $http.get('http://104.236.206.83:3000/getNotifi').success(function(data) {
-                $scope.NotificationsList = data;
-            });
-            //console.log(NotificationsList);
+            $scope.NotificationsList= [{}];
 
 
         }]

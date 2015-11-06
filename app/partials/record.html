@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-lg-12" style="padding-left: 7px">
         <div class="col-lg-4">
-            <div class="panel panel-white" ng-controller="DueCtrl">
+            <div class="panel panel-white">
                 <div class="panel-heading"><i class="fa fa-question-circle"></i> Top Scorers
 
                 </div>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="list-group">
-                        <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList | reverse">
+                        <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList">
                             <i class="fa fa-bell fa-fw"></i> {{notif.Info}}
                                     <span class="pull-right text-muted small"><em>{{notif.Time}}</em>
                                     </span>

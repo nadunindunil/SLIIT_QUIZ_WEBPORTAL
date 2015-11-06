@@ -46,7 +46,7 @@ app.config(['$routeProvider', function($routeProvider) {
         }).
         when('/dashboard', {
           templateUrl: 'partials/dashboard.html',
-          controller: 'DueCtrl'
+          controller: 'QuizCtrl'
         }).
         when('/profile', {
           templateUrl: 'partials/profile.html',
