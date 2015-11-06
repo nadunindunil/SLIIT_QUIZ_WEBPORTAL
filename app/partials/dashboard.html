@@ -160,22 +160,31 @@
                     </div>
 
                 <div class="col-lg-4">
-                    <div class="panel panel-white" ng-controller="NotificationsCtrl">
+                    <div class="panel panel-white" ng-controller="QuizCtrl">
                         <div class="panel-heading" >
                             <i class="fa fa-bell fa-fw"></i> Quiz Summary
-                            <div class="btn-group pull-right">
-                                <a href="#/notifications" style="color: #ffffff" class="btn btn-warning btn-xs"> Go to Notifications</a>
-                            </div>
+
                         </div>
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="" class="list-group-item" style="height: 1.8cm;" data-ng-repeat="notif in NotificationsList">
-                                    <i class="fa fa-bell fa-fw"></i> {{notif}}
-                                    <!--<span class="pull-right text-muted small"><em>{{notif.Time}}</em>-->
-                                    </span>
-                                </a>
+                            <div class="dataTable_wrapper">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Questions</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="repeated-item" data-ng-repeat="g in QuizList | filter:query | orderBy:'_id'" >
+                                        <td>{{g.Name}}</td>
+                                        <td>{{g.Questions.length}}</td>
 
 
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                             <!-- /.list-group -->
 
