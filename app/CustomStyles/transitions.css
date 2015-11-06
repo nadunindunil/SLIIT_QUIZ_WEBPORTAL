@@ -1,4 +1,4 @@
-/*  ng-view Animation  */
+/*  ng-view Animation   used link- http://stackoverflow.com/questions/32766572/are-conditional-transitions-possible-with-nganimate*/
 .view-slide-in.ng-enter {
     transition: all 1s ease;
     -webkit-transition:all 1s ease;

@@ -31,7 +31,7 @@ app.controller('QuizCtrl', function($scope){
 
 
     $scope.addQuiz = function () {
-        var array = {QuizID:$scope.q.id, Name:$scope.q.Name, time :$scope.q.Time, CourseID: $scope.q.Course,
+        var array = {QuizID:$scope.q.id, Name:$scope.q.Name, Time :$scope.q.Time, CourseID: $scope.q.Course,
             key : ['Mathematics','Level2'] };
         $scope.QuizList.push(array);
 
@@ -50,6 +50,29 @@ app.controller('QuizCtrl', function($scope){
         $scope.q.course = "";
         $scope.q.id = null;
         //$scope.q.key = null;
+    };
+
+    $scope.deleteQuiz = function(id){
+
+        socket.emit('deleteQuiz',{qid : id});
+
+        //for (var g = 0 ; g < QuizList.length ; g++){
+        //    if (QuizList[g].QuizID == id){
+        //        QuizList.remove(g);
+        //    }
+        //}
+
+        socket.emit('allQuiz',{qid : 35});
+
+
+
+        socket.on('showQuiz', function(msg){
+            $scope.QuizList = msg;
+            console.log(msg);
+            console.log($scope.QuizList);
+            $scope.$apply();
+        });
+
     };
 
 
@@ -84,6 +107,7 @@ app.controller('MemberCtrl', ['$scope', '$routeParams',
         };
 
         //$scope.questions = [];
+
 
         $scope.addQuestion = function()
         {
